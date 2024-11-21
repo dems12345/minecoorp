@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - MINECOORP</title>
+    <style>
+        body {
+            background-color: #4CAF50; 
+            color: white; 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            padding: 50px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Inscription</h1>
+    <form action="register.php" method="POST">
+        <input type="text" name="nom" placeholder="Nom" required><br><br>
+        <input type="text" name="prenom" placeholder="Prénom" required><br><br>
+        <input type="text" name="ville" placeholder="Ville" required><br><br>
+        <input type="text" name="numero" placeholder="Numéro" required><br><br>
+        <input type="password" name="motdepasse" placeholder="Mot de passe (min 4 caractères)" required minlength="4>
+      <input type="submit" value="S'inscrire">
+   </form>
+    <p><a href="connexion.html">Déjà membre ? Connectez-vous ici</a></p>
+</body>
+</html>

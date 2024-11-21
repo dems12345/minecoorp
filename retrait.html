@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option de Retrait - MINECOORP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #282c34; /* Couleur de fond de la page */
+            color: white;
+        }
+        .container {
+            border: 5px solid white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.1); /* Fond légèrement translucide */
+        }
+        .hidden {
+            display: none;
+        }
+        h2 {
+            color: white;
+        }
+        #inputContainer {
+            background-color: rgba(0, 0, 0, 0.8); /* Fond noir translucide pour la section de retrait */
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sélectionnez un moyen de retrait</h2>
+        <select id="paymentMethod" onchange="showInput()">
+            <option value="">--Choisir--</option>
+            <option value="orange">Orange</option>
+            <option value="mtn">MTN</option>
+        </select>
+        
+        <div id="inputContainer" class="hidden">
+            <input type="text" id="phoneNumber" placeholder="Entrez votre numéro" />
+            <button onclick="validateNumber()">Valider</button>
+        </div>
+        
+        <p id="message" class="hidden"></p>
+    </div>
+
+    <script>
+        function showInput() {
+            const paymentMethod = document.getElementById("paymentMethod").value;
+            const inputContainer = document.getElementById("inputContainer");
+            const message = document.getElementById("message");
+
+            inputContainer.classList.remove("hidden");
+            message.classList.add("hidden");
+        }
+
+        function validateNumber() {
+            const paymentMethod = document.getElementById("paymentMethod").value;
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const message = document.getElementById("message");
+            
+            const phonePattern = /^237\d{9}$/; // Vérifie que le format est 237 suivi de 9 chiffres
+
+            if (phonePattern.test(phoneNumber)) {
+                message.textContent = paymentMethod === "mtn" ?
+                    "Les retraits sont disponibles une semaine après un dépôt." :
+                    "Votre numéro est valide. Les retraits sont disponibles une semaine après un dépôt car la banque utilse votre effectuer des pres veuillez patienter minimun une semaine il es recommander de patiente le plus longtemps possible pour generer beacoup de revenu.";
+                message.classList.remove("hidden");
+            } else {
+                alert("Veuillez entrer un numéro valide au format 237xxxxxxxxx.");
+            }
+        }
+    </script>
+</body>
+</html>

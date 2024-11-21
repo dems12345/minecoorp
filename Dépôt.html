@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dépôt</title>
+    <style>
+        body {
+            background-color: #87CEEB; /* Bleu ciel */
+            font-family: Arial, sans-serif;
+            color: #333;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+        }
+        #message {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+        }
+        #crypto-options, #banque-options {
+            display: none;
+        }
+    </style>
+    <script>
+        function afficherNumero(moyen) {
+            var message = '';
+            document.getElementById("crypto-options").style.display = 'none';
+            document.getElementById("banque-options").style.display = 'none';
+
+            if (moyen === 'orange') {
+                message = 'Veuillez effectuer le dépôt à ce numéro : 691147544. Délai accordé : 180 secondes. Notez que la somme envoyée ne fera l'objet d'aucun frais si vous vous rendez dans nos points de dépôt.';
+            } else if (moyen === 'mtn') {
+                message = 'Veuillez effectuer le dépôt à ce numéro : 679160183. Délai accordé : 180 secondes. Notez que la somme envoyée ne fera l'objet d'aucun frais si vous vous rendez dans nos points de dépôt.';
+            } else if (moyen === 'crypto') {
+                message = 'Sélectionnez votre crypto-monnaie ci-dessous :';
+                document.getElementById("crypto-options").style.display = 'block';
+            } else if (moyen === 'banque') {
+                message = 'Sélectionnez votre banque ci-dessous :';
+                document.getElementById("banque-options").style.display = 'block';
+            }
+
+            document.getElementById("message").innerText = message;
+        }
+    </script>
+</head>
+<body>
+    <h2>Sélectionnez votre moyen de dépôt</h2>
+
+    <form>
+        <label for="moyenDepot">Choisissez un moyen de dépôt :</label>
+        <select id="moyenDepot" onchange="afficherNumero(this.value)">
+            <option value="">--Sélectionnez--</option>
+            <option value="orange">Orange</option>
+            <option value="mtn">MTN</option>
+            <option value="crypto">Crypto-monnaie</option>
+            <option value="banque">Banque</option>
+        </select>
+    </form>
+
+    <div id="message"></div>
+    
+    <div id="crypto-options">
+        <h3>Choisissez votre crypto-monnaie :</h3>
+        <ul>
+            <li>Bitcoin</li>
+            <li>Ethereum</li>
+            <li>Ripple</li>
+            <li>Litecoin</li>
+        </ul>
+    </div>
+
+    <div id="banque-options">
+        <h3>Choisissez votre banque :</h3>
+        <ul>
+            <li>Banque A</li>
+            <li>Banque B</li>
+            <li>Banque C</li>
+        </ul>
+    </div>
+</body>
+</html>

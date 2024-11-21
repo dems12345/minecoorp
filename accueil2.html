@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Dashboard - MINECOORP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('http://abouadilconsulting.ca/wp-content/uploads/2022/03/Investisseur.jpeg'); /* Remplacez par l'URL de votre image */
+            background-size: cover; /* Couvrir tout l'arrière-plan */
+            background-position: center; /* Centrer l'image */
+            margin: 0;
+            padding: 20px;
+            color: green; /* Texte en blanc pour le contraste */
+            display: flex;
+            flex-direction: column;
+            height: 100vh; /* Utiliser toute la hauteur de la page */
+        }
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-top: 20px;
+        }
+        .solde {
+            font-size: 24px;
+            color: deepskyblue; /* Solde en bleu ciel */
+            margin-top: 20px;
+            margin-bottom: 50px; /* Espacement en bas du solde */
+        }
+        .options {
+            display: flex;
+            justify-content: center;
+            margin-top: 50px; /* Espacer les options de la section solde */
+        }
+        .option {
+            margin: 0 20px; /* Espacement entre les boutons */
+        }
+        .btn {
+            padding: 15px 25px;
+            border: none;
+            color: white;
+            background-color: darkblue; /* Couleur des boutons */
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .start-btn {
+            background-color: white; /* Couleur du bouton "Commencer" */
+            color: green; /* Texte vert pour contraste */
+            margin-top: 50px; /* Espacement au-dessus du bouton */
+        }
+        .info {
+            margin-top: auto; /* Placer info à la fin de la page */
+            text-align: center;
+            padding: 20px 0;
+            background-color: rgba(0, 128, 0, 0.7); /* Fond transparent pour info */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>MINECOORP</h1>
+    <div class="solde">
+        Solde : <span id="solde">0 FCFA</span> <!-- Solde initialisé à 0 FCFA -->
+    </div>
+
+    <div class="options">
+        <div class="option">
+            <a href="Dépôt.html" class="btn">Dépôt</a>
+        </div>
+        <div class="option">
+            <a href="retrait.html" class="btn">Retrait</a>
+        </div>
+    </div>
+
+    <!-- Bouton "Commencer à garder mon argent" -->
+    <div class="options">
+        <a href="investissement.html" class="btn start-btn">Commencer à garder mon argent</a>
+    </div>
+
+    <div class="info">
+        <a href="a propos.html" class="btn">Info et Assistance</a>
+    </div>
+
+</body>
+</html>

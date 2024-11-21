@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investissement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: lightblue; /* Fond bleu ciel par défaut */
+        }
+        .message {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center; /* Centrer le texte */
+            font-size: 0.8em; /* Réduire la taille de la police */
+            color: #333; /* Couleur du texte */
+        }
+    </style>
+</head>
+<body>
+
+<h1>Formulaire d'Investissement</h1>
+<label for="montant">Montant à investir (FCFA) :</label>
+<input type="number" id="montant" min="10000" max="12000000" required>
+<button id="garderBtn">Garder</button>
+
+<div class="message" id="message"></div>
+
+<script>
+    let solde = 500000; // Exemple de solde initial
+
+    document.getElementById('garderBtn').addEventListener('click', function() {
+        const montant = parseInt(document.getElementById('montant').value);
+        const messageDiv = document.getElementById('message');
+
+        // Réinitialiser le message
+        messageDiv.textContent = '';
+
+        if (montant < 10000 || montant > 12000000) {
+            messageDiv.textContent = 'Le montant doit être compris entre 10 000 et 12 000 000 FCFA.';
+            return;
+        }
+
+        if (montant > solde) {
+            messageDiv.textContent = 'Votre solde est insuffisant pour cet investissement.';
+            messageDiv.classList.add('error');
+        } else {
+            solde -= montant; // Déduire le montant du solde
+            messageDiv.textContent = 'Votre investissement ne peut etre effectuer solde insuffisant.';
+            messageDiv.classList.add('success');
+        }
+        
+        console.log('Nouveau solde:', solde); // Afficher le nouveau solde dans la console
+    });
+</script>
+
+<footer>
+    Copyright 2024
+</footer>
+
+</body>
+</html>
